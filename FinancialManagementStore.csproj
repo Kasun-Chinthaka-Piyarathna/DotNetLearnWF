@@ -46,16 +46,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataEntry.cs">
+    <Compile Include="ExpenseEntry.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DataEntry.Designer.cs">
-      <DependentUpon>DataEntry.cs</DependentUpon>
+    <Compile Include="ExpenseEntry.Designer.cs">
+      <DependentUpon>ExpenseEntry.cs</DependentUpon>
     </Compile>
-    <Compile Include="DVDStoreData.Designer.cs">
+    <Compile Include="FinancialMgtDataSet.cs">
+      <DependentUpon>FinancialMgtDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FinancialMgtDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DVDStoreData.xsd</DependentUpon>
+      <DependentUpon>FinancialMgtDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="IncomeEntry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IncomeEntry.Designer.cs">
+      <DependentUpon>IncomeEntry.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -65,16 +74,20 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RegisterView.cs">
+    <Compile Include="TransactionInformation.cs" />
+    <Compile Include="TransactionView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RegisterView.Designer.cs">
-      <DependentUpon>RegisterView.cs</DependentUpon>
+    <Compile Include="TransactionView.Designer.cs">
+      <DependentUpon>TransactionView.cs</DependentUpon>
     </Compile>
     <Compile Include="UserInformation.cs" />
     <Compile Include="UserProfileModel.cs" />
-    <EmbeddedResource Include="DataEntry.resx">
-      <DependentUpon>DataEntry.cs</DependentUpon>
+    <EmbeddedResource Include="ExpenseEntry.resx">
+      <DependentUpon>ExpenseEntry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IncomeEntry.resx">
+      <DependentUpon>IncomeEntry.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -88,19 +101,19 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="RegisterView.resx">
-      <DependentUpon>RegisterView.cs</DependentUpon>
+    <EmbeddedResource Include="TransactionView.resx">
+      <DependentUpon>TransactionView.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="DVDStoreData.xsc">
-      <DependentUpon>DVDStoreData.xsd</DependentUpon>
+    <None Include="FinancialMgtDataSet.xsc">
+      <DependentUpon>FinancialMgtDataSet.xsd</DependentUpon>
     </None>
-    <None Include="DVDStoreData.xsd">
+    <None Include="FinancialMgtDataSet.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DVDStoreData.Designer.cs</LastGenOutput>
+      <LastGenOutput>FinancialMgtDataSet.Designer.cs</LastGenOutput>
     </None>
-    <None Include="DVDStoreData.xss">
-      <DependentUpon>DVDStoreData.xsd</DependentUpon>
+    <None Include="FinancialMgtDataSet.xss">
+      <DependentUpon>FinancialMgtDataSet.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

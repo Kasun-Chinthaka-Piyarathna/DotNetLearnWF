@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DVDStore.Properties
+namespace FinancialManagementStore.Properties
 {
 
 

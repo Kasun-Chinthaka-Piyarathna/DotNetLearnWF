@@ -1,5 +1,6 @@
-﻿using DVDStore.DataObjects;
-using DVDStore.Models;
+﻿using DVDStore;
+using FinancialManagementStore.DataObjects;
+using FinancialManagementStore.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,9 +10,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static DVDStore.DVDStoreData;
 
-namespace DVDStore
+namespace FinancialManagementStore
 {
     public partial class MainForm : Form
     {
@@ -25,22 +25,7 @@ namespace DVDStore
 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void AuthenticateUser(object sender, EventArgs e)
+      /*  private void AuthenticateUser(object sender, EventArgs e)
         {
             String username = this.txtUserName.Text;
             String password = this.txtPassword.Text;
@@ -56,41 +41,69 @@ namespace DVDStore
             if (result == true) {
                 RegisterView registerView = new RegisterView();
                 registerView.UserName = username;
-               // registerView.lblUserEnteredName.Text = username;
+                registerView.labelUserEnteredName.Text = username;
                 registerView.Show();
-                //this.Hide();
+                this.Hide();
             }
-        }
+        }*/
 
-        UserInformation userEnteredInfo;
-        DVDStoreData dbData = new DVDStoreData();
-        private void OpenDataEntryForm(object sender, EventArgs e)
-        {
-            DataEntry dataEntry = new DataEntry();
-            dataEntry.ShowDialog();
-            userEnteredInfo = dataEntry.UserData;
-            dataEntry.Dispose();
-            //storage
-            UserDataRow row = this.dbData.UserData.NewUserDataRow();
-            row.FirstName = userEnteredInfo.FirstName;
-            row.LastName = userEnteredInfo.LastName;
-            this.dbData.UserData.AddUserDataRow(row);
-        }
-
+        FinancialMgtDataSet financialMgtDataSet = new FinancialMgtDataSet();
+    
         private void ShowTheData(object sender, EventArgs e)
         {
-            RegisterView register = new RegisterView();
-            DVDStoreData.UserDataRow row = (UserDataRow)this.dbData.UserData.Rows[this.dbData.UserData.Rows.Count - 1];
-            UserInformation newData = new UserInformation();
-            newData.FirstName = row.FirstName;
-            newData.LastName = row.LastName;
-            register.UserDataToDisplay = newData;
+            TransactionView transactionView = new TransactionView();
+            if (this.financialMgtDataSet.TransactionDataTable==null ||
+                this.financialMgtDataSet.TransactionDataTable.Rows.Count == 0) {
+                MessageBox.Show("No Transaction to display, Please add incomes and expenses first!", "Hey", MessageBoxButtons.OK,
+                   MessageBoxIcon.Warning);
+                return;
+            }
+            FinancialMgtDataSet.TransactionDataTableRow row = (FinancialMgtDataSet.TransactionDataTableRow)
+                this.financialMgtDataSet.
+                TransactionDataTable.Rows[this.financialMgtDataSet.TransactionDataTable.Rows.Count - 1];
+            TransactionInformation newData = new TransactionInformation();
+            newData.Transaction = row.Transaction;
+            newData.Date = row.Date;
+            transactionView.TransactionDataToDisplay = newData;
+            transactionView.transactionDataGridView.DataSource = this.financialMgtDataSet.TransactionDataTable;
+            transactionView.Show();
+        }
 
-            register.dataGridView.DataSource = this.dbData.UserData;
+        private void ShowAddExpenseForm(object sender, EventArgs e)
+        {
+            ExpenseEntry expenseEntry = new ExpenseEntry();
+            expenseEntry.ShowDialog();
+            TransactionInformation transactionInfo = expenseEntry.TransactionData;
+            expenseEntry.Dispose();
+            //storage
+            FinancialMgtDataSet.TransactionDataTableRow row = this.financialMgtDataSet.TransactionDataTable.NewTransactionDataTableRow();
+            if (row != null && transactionInfo != null)
+            {
+                row.Transaction = transactionInfo.Transaction;
+                row.Date = transactionInfo.Date;
+                row.IsIncome = transactionInfo.IsIncome ? "YES" : "NO";
+                row.Type = transactionInfo.Type;
+                this.financialMgtDataSet.TransactionDataTable.AddTransactionDataTableRow(row);
+            }
 
+        }
 
-
-            register.Show();
+        private void ShowAddIncomeForm(object sender, EventArgs e)
+        {
+            IncomeEntry incomeEntry = new IncomeEntry();
+            incomeEntry.ShowDialog();
+            TransactionInformation transactionInfo = incomeEntry.TransactionData;
+            incomeEntry.Dispose();
+            //storage
+            FinancialMgtDataSet.TransactionDataTableRow row = this.financialMgtDataSet.TransactionDataTable.NewTransactionDataTableRow();
+            if (row != null && transactionInfo!=null)
+            {
+                row.Transaction = transactionInfo.Transaction;
+                row.Date = transactionInfo.Date;
+                row.IsIncome = transactionInfo.IsIncome ? "YES" : "NO";
+                row.Type = transactionInfo.Type;
+                this.financialMgtDataSet.TransactionDataTable.AddTransactionDataTableRow(row);
+            }
         }
     }
 }
