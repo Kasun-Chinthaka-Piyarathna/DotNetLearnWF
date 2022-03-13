@@ -27,23 +27,23 @@ namespace DVDStore
             }
 
             String amount = this.textAmount.Text;
-            String transactionDate = this.dateTimePicker.Value.ToLongDateString();
+            DateTime transactionDate = this.dateTimePicker.Value.Date;
             if (amount == null || amount == String.Empty)
             {
                 MessageBox.Show("Transaction Amount is required", "Hey", MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
                 return;
             }
-            if (transactionDate == null || transactionDate == String.Empty)
+            if (transactionDate == null)
             {
                 MessageBox.Show("Transaction Date is required", "Hey", MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
                 return;
             }
-            this.TransactionData.Transaction = amount;
+            this.TransactionData.Amount = Convert.ToDouble(amount);
             this.TransactionData.Date = transactionDate;
-            this.TransactionData.IsIncome = true;
-            this.TransactionData.Type = null;
+            this.TransactionData.Type = "Income";
+            this.TransactionData.Occurence = null;
             this.Hide();
         }
     }

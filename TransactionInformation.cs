@@ -8,10 +8,11 @@ namespace FinancialManagementStore.DataObjects
 {
     public class TransactionInformation
     {
-        public String Id { get; set; }
-        public String Transaction { get; set; }
-        public String Date { get; set; }
-        public Boolean IsIncome { get; set; }
+        public int Id { get; set; }
+        public String Description { get; set; }
+        public Double Amount { get; set; }
+        public DateTime Date { get; set; }
         public String Type { get; set; }
+        public String Occurence { get; set; }
     }
 }

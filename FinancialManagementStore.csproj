@@ -75,6 +75,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TransactionInformation.cs" />
+    <Compile Include="TransactionInformationModel.cs" />
     <Compile Include="TransactionView.cs">
       <SubType>Form</SubType>
     </Compile>

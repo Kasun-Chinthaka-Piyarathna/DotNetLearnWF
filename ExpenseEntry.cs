@@ -32,7 +32,7 @@ namespace FinancialManagementStore
                 this.TransactionData = new TransactionInformation();
             }
             String amount = this.textAmount.Text;
-            String transactionDate = this.dateTimePicker.Value.ToLongDateString();
+            DateTime transactionDate = this.dateTimePicker.Value.Date;
             int index = this.typeSelectionComboBox.SelectedIndex;
             if (amount == null || amount == String.Empty)
             {
@@ -40,7 +40,7 @@ namespace FinancialManagementStore
                     MessageBoxIcon.Warning);
                 return;
             }
-            if (transactionDate == null || transactionDate == String.Empty)
+            if (transactionDate == null)
             {
                 MessageBox.Show("Transaction Date is required", "Hey", MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
@@ -52,10 +52,10 @@ namespace FinancialManagementStore
                     MessageBoxIcon.Warning);
                 return;
             }
-            this.TransactionData.Transaction = amount;
+            this.TransactionData.Amount = Convert.ToDouble(amount);
             this.TransactionData.Date = transactionDate;
-            this.TransactionData.Type = this.typeSelectionComboBox.SelectedItem.ToString();
-            this.TransactionData.IsIncome = false;
+            this.TransactionData.Occurence = this.typeSelectionComboBox.SelectedItem.ToString();
+            this.TransactionData.Type = "Expense";
             this.Hide();
         }
     }

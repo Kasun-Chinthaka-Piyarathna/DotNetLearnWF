@@ -15,6 +15,7 @@ namespace FinancialManagementStore
 {
     public partial class MainForm : Form
     {
+        FinancialMgtDataSet financialMgtDataSet;
         public MainForm()
         {
             InitializeComponent();
@@ -22,33 +23,33 @@ namespace FinancialManagementStore
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            financialMgtDataSet = TransactionInformationModel.GetInstance().financialMgtDataSet;
 
         }
 
-      /*  private void AuthenticateUser(object sender, EventArgs e)
-        {
-            String username = this.txtUserName.Text;
-            String password = this.txtPassword.Text;
+        /*  private void AuthenticateUser(object sender, EventArgs e)
+          {
+              String username = this.txtUserName.Text;
+              String password = this.txtPassword.Text;
 
-            //validations
-            if (username == null || username == String.Empty) { 
-                    MessageBox.Show("Username required", "Hey", MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
-                return;
-            }
-            UserProfileModel userProfileModel = new UserProfileModel();
-            Boolean result = userProfileModel.LoginUser(username, password);
-            if (result == true) {
-                RegisterView registerView = new RegisterView();
-                registerView.UserName = username;
-                registerView.labelUserEnteredName.Text = username;
-                registerView.Show();
-                this.Hide();
-            }
-        }*/
+              //validations
+              if (username == null || username == String.Empty) { 
+                      MessageBox.Show("Username required", "Hey", MessageBoxButtons.OK,
+                          MessageBoxIcon.Warning);
+                  return;
+              }
+              UserProfileModel userProfileModel = new UserProfileModel();
+              Boolean result = userProfileModel.LoginUser(username, password);
+              if (result == true) {
+                  RegisterView registerView = new RegisterView();
+                  registerView.UserName = username;
+                  registerView.labelUserEnteredName.Text = username;
+                  registerView.Show();
+                  this.Hide();
+              }
+          }*/
 
-        FinancialMgtDataSet financialMgtDataSet = new FinancialMgtDataSet();
-    
+
         private void ShowTheData(object sender, EventArgs e)
         {
             TransactionView transactionView = new TransactionView();
@@ -61,12 +62,14 @@ namespace FinancialManagementStore
             FinancialMgtDataSet.TransactionDataTableRow row = (FinancialMgtDataSet.TransactionDataTableRow)
                 this.financialMgtDataSet.
                 TransactionDataTable.Rows[this.financialMgtDataSet.TransactionDataTable.Rows.Count - 1];
-            TransactionInformation newData = new TransactionInformation();
+           /* TransactionInformation newData = new TransactionInformation();
             newData.Transaction = row.Transaction;
             newData.Date = row.Date;
-            transactionView.TransactionDataToDisplay = newData;
-            transactionView.transactionDataGridView.DataSource = this.financialMgtDataSet.TransactionDataTable;
-            transactionView.Show();
+            transactionView.TransactionDataToDisplay = newData;*/
+            transactionView.transactionDataGridView.DataSource = this.financialMgtDataSet.
+                TransactionDataTable;
+            transactionView.financialMgtDataSet = this.financialMgtDataSet; 
+       transactionView.Show();
         }
 
         private void ShowAddExpenseForm(object sender, EventArgs e)
@@ -79,10 +82,10 @@ namespace FinancialManagementStore
             FinancialMgtDataSet.TransactionDataTableRow row = this.financialMgtDataSet.TransactionDataTable.NewTransactionDataTableRow();
             if (row != null && transactionInfo != null)
             {
-                row.Transaction = transactionInfo.Transaction;
+                row.Amount = transactionInfo.Amount;
                 row.Date = transactionInfo.Date;
-                row.IsIncome = transactionInfo.IsIncome ? "YES" : "NO";
                 row.Type = transactionInfo.Type;
+                row.Occurence = transactionInfo.Occurence;
                 this.financialMgtDataSet.TransactionDataTable.AddTransactionDataTableRow(row);
             }
 
@@ -98,10 +101,10 @@ namespace FinancialManagementStore
             FinancialMgtDataSet.TransactionDataTableRow row = this.financialMgtDataSet.TransactionDataTable.NewTransactionDataTableRow();
             if (row != null && transactionInfo!=null)
             {
-                row.Transaction = transactionInfo.Transaction;
+                row.Amount = transactionInfo.Amount;
                 row.Date = transactionInfo.Date;
-                row.IsIncome = transactionInfo.IsIncome ? "YES" : "NO";
                 row.Type = transactionInfo.Type;
+                row.Occurence = transactionInfo.Occurence;
                 this.financialMgtDataSet.TransactionDataTable.AddTransactionDataTableRow(row);
             }
         }

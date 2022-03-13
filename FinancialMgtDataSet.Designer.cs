@@ -10,6 +10,8 @@
 
 #pragma warning disable 1591
 
+using System;
+
 namespace DVDStore {
     
     
@@ -591,13 +593,15 @@ namespace DVDStore {
             
             private global::System.Data.DataColumn columnId;
             
-            private global::System.Data.DataColumn columnTransaction;
+            private global::System.Data.DataColumn columnDescription;
+            
+            private global::System.Data.DataColumn columnAmount;
             
             private global::System.Data.DataColumn columnDate;
             
-            private global::System.Data.DataColumn columnIsIncome;
-            
             private global::System.Data.DataColumn columnType;
+            
+            private global::System.Data.DataColumn columnOccurence;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -642,9 +646,17 @@ namespace DVDStore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn TransactionColumn {
+            public global::System.Data.DataColumn DescriptionColumn {
                 get {
-                    return this.columnTransaction;
+                    return this.columnDescription;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn AmountColumn {
+                get {
+                    return this.columnAmount;
                 }
             }
             
@@ -658,17 +670,17 @@ namespace DVDStore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn IsIncomeColumn {
+            public global::System.Data.DataColumn TypeColumn {
                 get {
-                    return this.columnIsIncome;
+                    return this.columnType;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn TypeColumn {
+            public global::System.Data.DataColumn OccurenceColumn {
                 get {
-                    return this.columnType;
+                    return this.columnOccurence;
                 }
             }
             
@@ -709,14 +721,15 @@ namespace DVDStore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public TransactionDataTableRow AddTransactionDataTableRow(string Id, string Transaction, string Date, string IsIncome, string Type) {
+            public TransactionDataTableRow AddTransactionDataTableRow(int Id, string Description, double Amount, DateTime Date, string Type, string Occurence) {
                 TransactionDataTableRow rowTransactionDataTableRow = ((TransactionDataTableRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Id,
-                        Transaction,
+                        Description,
+                        Amount,
                         Date,
-                        IsIncome,
-                        Type};
+                        Type,
+                        Occurence};
                 rowTransactionDataTableRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTransactionDataTableRow);
                 return rowTransactionDataTableRow;
@@ -740,28 +753,31 @@ namespace DVDStore {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
                 this.columnId = base.Columns["Id"];
-                this.columnTransaction = base.Columns["Transaction"];
+                this.columnDescription = base.Columns["Description"];
+                this.columnAmount = base.Columns["Amount"];
                 this.columnDate = base.Columns["Date"];
-                this.columnIsIncome = base.Columns["IsIncome"];
                 this.columnType = base.Columns["Type"];
+                this.columnOccurence = base.Columns["Occurence"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             private void InitClass() {
-                this.columnId = new global::System.Data.DataColumn("Id", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnId = new global::System.Data.DataColumn("Id", typeof(int), null, global::System.Data.MappingType.Element);
                 this.columnId.AutoIncrement = true;
                 this.columnId.AutoIncrementSeed = 1;
                 this.columnId.AutoIncrementStep = 1;
                 base.Columns.Add(this.columnId);
-                this.columnTransaction = new global::System.Data.DataColumn("Transaction", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTransaction);
-                this.columnDate = new global::System.Data.DataColumn("Date", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnDescription = new global::System.Data.DataColumn("Description", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDescription);
+                this.columnAmount = new global::System.Data.DataColumn("Amount", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAmount);
+                this.columnDate = new global::System.Data.DataColumn("Date", typeof(DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDate);
-                this.columnIsIncome = new global::System.Data.DataColumn("IsIncome", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnIsIncome);
                 this.columnType = new global::System.Data.DataColumn("Type", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnType);
+                this.columnOccurence = new global::System.Data.DataColumn("Occurence", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOccurence);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1003,10 +1019,10 @@ namespace DVDStore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Id {
+            public int Id {
                 get {
                     try {
-                        return ((string)(this[this.tableTransactionDataTable.IdColumn]));
+                        return ((int)(this[this.tableTransactionDataTable.IdColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Id\' in table \'TransactionDataTable\' is DBNull.", e);
@@ -1019,26 +1035,42 @@ namespace DVDStore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Transaction {
+            public string Description {
                 get {
                     try {
-                        return ((string)(this[this.tableTransactionDataTable.TransactionColumn]));
+                        return ((string)(this[this.tableTransactionDataTable.DescriptionColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Transaction\' in table \'TransactionDataTable\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Description\' in table \'TransactionDataTable\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableTransactionDataTable.TransactionColumn] = value;
+                    this[this.tableTransactionDataTable.DescriptionColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Date {
+            public double Amount {
                 get {
                     try {
-                        return ((string)(this[this.tableTransactionDataTable.DateColumn]));
+                        return ((double)(this[this.tableTransactionDataTable.AmountColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Amount\' in table \'TransactionDataTable\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTransactionDataTable.AmountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public DateTime Date {
+                get {
+                    try {
+                        return ((DateTime)(this[this.tableTransactionDataTable.DateColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Date\' in table \'TransactionDataTable\' is DBNull.", e);
@@ -1046,22 +1078,6 @@ namespace DVDStore {
                 }
                 set {
                     this[this.tableTransactionDataTable.DateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string IsIncome {
-                get {
-                    try {
-                        return ((string)(this[this.tableTransactionDataTable.IsIncomeColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'IsIncome\' in table \'TransactionDataTable\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableTransactionDataTable.IsIncomeColumn] = value;
                 }
             }
             
@@ -1083,6 +1099,22 @@ namespace DVDStore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Occurence {
+                get {
+                    try {
+                        return ((string)(this[this.tableTransactionDataTable.OccurenceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Occurence\' in table \'TransactionDataTable\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTransactionDataTable.OccurenceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsIdNull() {
                 return this.IsNull(this.tableTransactionDataTable.IdColumn);
             }
@@ -1095,14 +1127,26 @@ namespace DVDStore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsTransactionNull() {
-                return this.IsNull(this.tableTransactionDataTable.TransactionColumn);
+            public bool IsDescriptionNull() {
+                return this.IsNull(this.tableTransactionDataTable.DescriptionColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetTransactionNull() {
-                this[this.tableTransactionDataTable.TransactionColumn] = global::System.Convert.DBNull;
+            public void SetDescriptionNull() {
+                this[this.tableTransactionDataTable.DescriptionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsAmountNull() {
+                return this.IsNull(this.tableTransactionDataTable.AmountColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetAmountNull() {
+                this[this.tableTransactionDataTable.AmountColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1119,18 +1163,6 @@ namespace DVDStore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsIsIncomeNull() {
-                return this.IsNull(this.tableTransactionDataTable.IsIncomeColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetIsIncomeNull() {
-                this[this.tableTransactionDataTable.IsIncomeColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsTypeNull() {
                 return this.IsNull(this.tableTransactionDataTable.TypeColumn);
             }
@@ -1139,6 +1171,18 @@ namespace DVDStore {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetTypeNull() {
                 this[this.tableTransactionDataTable.TypeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsOccurenceNull() {
+                return this.IsNull(this.tableTransactionDataTable.OccurenceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetOccurenceNull() {
+                this[this.tableTransactionDataTable.OccurenceColumn] = global::System.Convert.DBNull;
             }
         }
         
