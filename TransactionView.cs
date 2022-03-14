@@ -98,8 +98,42 @@ namespace DVDStore
 
         private void ShowWeeklyReport(object sender, EventArgs e)
         {
-            WeeklyView weeklyView = new WeeklyView();
-            weeklyView.ShowDialog();
+            DateTime nowDate = DateTime.Now.Date;
+            DateTime lastWeekStartDate = DateTime.Now.AddDays(-7).Date;
+            FinancialMgtDataSet.TransactionDataTableRow[] rows =
+            (FinancialMgtDataSet.TransactionDataTableRow[])
+            this.financialMgtDataSet.TransactionDataTable.Select("Date > #" + lastWeekStartDate+"#"+
+            "AND Date <= #"+nowDate+"#");
+            MessageBox.Show(rows.Length.ToString());
+
+            List<TransactionInformation> weeklyData = new List<TransactionInformation>();
+
+            if (rows.Length > 0)
+            {
+                foreach (FinancialMgtDataSet.TransactionDataTableRow row in rows)
+                {
+                    weeklyData.Add(new TransactionInformation()
+                    {
+                        Id = row.Id,
+                        Description = row.Description,
+                        Amount = row.Amount,
+                        Date = row.Date,
+                        Type = row.Type,
+                        Occurence = row.Occurence
+                    });
+
+                }
+                WeeklyView weeklyView = new WeeklyView();
+                weeklyView.labelFrom.Text = lastWeekStartDate.ToShortDateString();
+                weeklyView.labelTo.Text = nowDate.ToShortDateString();
+                weeklyView.weeklyDataGridView.DataSource = weeklyData;
+                weeklyView.ShowDialog();
+            }
+            else {
+                MessageBox.Show("No data found to display a week report!");
+            }
+
+            
         }
     }
 }

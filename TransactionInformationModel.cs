@@ -31,7 +31,8 @@ namespace DVDStore
             row1.Amount = 1000.50;
             row1.Date = Convert.ToDateTime("2/10/2022").Date;
             row1.Type = "Income";
-            row1.Occurence = null;
+            row1.Occurence = "One-Off";
+            row1.Description = "Arduino Kit";
             this.financialMgtDataSet.TransactionDataTable.AddTransactionDataTableRow(row1);
 
             FinancialMgtDataSet.TransactionDataTableRow row2 = this.financialMgtDataSet.
@@ -40,14 +41,16 @@ namespace DVDStore
             row2.Date = Convert.ToDateTime("3/10/2022").Date;
             row2.Type = "Expense";
             row2.Occurence = "One-Off";
+            row2.Description = "Pay a loan";
             this.financialMgtDataSet.TransactionDataTable.AddTransactionDataTableRow(row2);
 
             FinancialMgtDataSet.TransactionDataTableRow row3 = this.financialMgtDataSet.
                TransactionDataTable.NewTransactionDataTableRow();
-            row3.Amount = 20000;
+            row3.Amount = 120000;
             row3.Date = Convert.ToDateTime("3/10/2022").Date;
             row3.Type = "Income";
-            row3.Occurence = null;
+            row3.Occurence = "Salary";
+            row3.Description = "Arduino Kit";
             this.financialMgtDataSet.TransactionDataTable.AddTransactionDataTableRow(row3);
 
             FinancialMgtDataSet.TransactionDataTableRow row4 = this.financialMgtDataSet.
@@ -56,6 +59,7 @@ namespace DVDStore
             row4.Date = Convert.ToDateTime("3/11/2022").Date;
             row4.Type = "Expense";
             row4.Occurence = "Recurring";
+            row4.Description = "Internet Bill";
             this.financialMgtDataSet.TransactionDataTable.AddTransactionDataTableRow(row4);
 
             FinancialMgtDataSet.TransactionDataTableRow row5 = this.financialMgtDataSet.
@@ -63,7 +67,8 @@ namespace DVDStore
             row5.Amount = 4500;
             row5.Date = Convert.ToDateTime("3/12/2022").Date;
             row5.Type = "Income";
-            row5.Occurence = null;
+            row5.Occurence = "One-Off";
+            row5.Description = "Money back from friend";
             this.financialMgtDataSet.TransactionDataTable.AddTransactionDataTableRow(row5);
 
             FinancialMgtDataSet.TransactionDataTableRow row6 = this.financialMgtDataSet.
@@ -71,7 +76,8 @@ namespace DVDStore
             row6.Amount = 1000.50;
             row6.Date = Convert.ToDateTime("3/13/2022").Date;
             row6.Type = "Income";
-            row6.Occurence = null;
+            row6.Occurence = "One-Off";
+            row6.Description = "Money back from friend";
             this.financialMgtDataSet.TransactionDataTable.AddTransactionDataTableRow(row6);
         }
     }

@@ -29,9 +29,19 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.weeklyDataGridView = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.label3 = new System.Windows.Forms.Label();
+            this.labelFrom = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.labelTo = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.labelWeekIncome = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.labelWeekExpenses = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.labelWeekBalance = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.weeklyDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -42,34 +52,136 @@
             this.label1.Size = new System.Drawing.Size(0, 13);
             this.label1.TabIndex = 0;
             // 
-            // dataGridView1
+            // weeklyDataGridView
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 70);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(776, 150);
-            this.dataGridView1.TabIndex = 1;
+            this.weeklyDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.weeklyDataGridView.Location = new System.Drawing.Point(12, 135);
+            this.weeklyDataGridView.Name = "weeklyDataGridView";
+            this.weeklyDataGridView.ReadOnly = true;
+            this.weeklyDataGridView.Size = new System.Drawing.Size(776, 150);
+            this.weeklyDataGridView.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 32);
+            this.label2.Location = new System.Drawing.Point(12, 22);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(139, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Weekly View for Last Week";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(12, 58);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(30, 13);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "From";
+            // 
+            // labelFrom
+            // 
+            this.labelFrom.AutoSize = true;
+            this.labelFrom.Location = new System.Drawing.Point(74, 58);
+            this.labelFrom.Name = "labelFrom";
+            this.labelFrom.Size = new System.Drawing.Size(52, 13);
+            this.labelFrom.TabIndex = 4;
+            this.labelFrom.Text = "labelFrom";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(148, 58);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(20, 13);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "To";
+            // 
+            // labelTo
+            // 
+            this.labelTo.AutoSize = true;
+            this.labelTo.Location = new System.Drawing.Point(217, 58);
+            this.labelTo.Name = "labelTo";
+            this.labelTo.Size = new System.Drawing.Size(42, 13);
+            this.labelTo.TabIndex = 6;
+            this.labelTo.Text = "labelTo";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(15, 303);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(74, 13);
+            this.label7.TabIndex = 7;
+            this.label7.Text = "Week Income";
+            // 
+            // labelWeekIncome
+            // 
+            this.labelWeekIncome.AutoSize = true;
+            this.labelWeekIncome.Location = new System.Drawing.Point(148, 303);
+            this.labelWeekIncome.Name = "labelWeekIncome";
+            this.labelWeekIncome.Size = new System.Drawing.Size(29, 13);
+            this.labelWeekIncome.TabIndex = 8;
+            this.labelWeekIncome.Text = "label";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(15, 333);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(85, 13);
+            this.label9.TabIndex = 9;
+            this.label9.Text = "Week Expenses";
+            // 
+            // labelWeekExpenses
+            // 
+            this.labelWeekExpenses.AutoSize = true;
+            this.labelWeekExpenses.Location = new System.Drawing.Point(148, 333);
+            this.labelWeekExpenses.Name = "labelWeekExpenses";
+            this.labelWeekExpenses.Size = new System.Drawing.Size(29, 13);
+            this.labelWeekExpenses.TabIndex = 10;
+            this.labelWeekExpenses.Text = "label";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(15, 367);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(46, 13);
+            this.label11.TabIndex = 11;
+            this.label11.Text = "Balance";
+            // 
+            // labelWeekBalance
+            // 
+            this.labelWeekBalance.AutoSize = true;
+            this.labelWeekBalance.Location = new System.Drawing.Point(148, 367);
+            this.labelWeekBalance.Name = "labelWeekBalance";
+            this.labelWeekBalance.Size = new System.Drawing.Size(29, 13);
+            this.labelWeekBalance.TabIndex = 12;
+            this.labelWeekBalance.Text = "label";
             // 
             // WeeklyView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.labelWeekBalance);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.labelWeekExpenses);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.labelWeekIncome);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.labelTo);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.labelFrom);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.weeklyDataGridView);
             this.Controls.Add(this.label1);
             this.Name = "WeeklyView";
             this.Text = "WeeklyView";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.WeeklyView_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.weeklyDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -78,7 +190,17 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label2;
+        public System.Windows.Forms.DataGridView weeklyDataGridView;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label labelWeekIncome;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label labelWeekExpenses;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label labelWeekBalance;
+        public System.Windows.Forms.Label labelTo;
+        public System.Windows.Forms.Label labelFrom;
     }
 }

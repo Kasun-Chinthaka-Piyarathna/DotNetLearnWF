@@ -16,5 +16,10 @@ namespace DVDStore
         {
             InitializeComponent();
         }
+
+        private void WeeklyView_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
