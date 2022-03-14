@@ -1,15 +1,8 @@
 ﻿using FinancialManagementStore.DataObjects;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DVDStore
+namespace FinancialMgtTool
 {
     public partial class IncomeEntry : Form
     { 
@@ -25,7 +18,6 @@ namespace DVDStore
             {
                 this.TransactionData = new TransactionInformation();
             }
-
             String amount = this.textAmount.Text;
             String description = this.textDescription.Text;
             DateTime transactionDate = this.dateTimePicker.Value.Date;
@@ -51,7 +43,7 @@ namespace DVDStore
             this.TransactionData.Description = description;
             this.TransactionData.Date = transactionDate;
             this.TransactionData.Type = "Income";
-            this.TransactionData.Occurence = "One-Off";
+            this.TransactionData.Occurence = "One-off";
             this.Hide();
         }
 

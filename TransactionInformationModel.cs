@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DVDStore
+namespace FinancialMgtTool
 {
     public class TransactionInformationModel
     {
@@ -25,13 +25,12 @@ namespace DVDStore
 
         public void SetInitialRecords() // only for demostration
         {
-
             FinancialMgtDataSet.TransactionDataTableRow row1 = this.financialMgtDataSet.
                 TransactionDataTable.NewTransactionDataTableRow();
             row1.Amount = 1000.50;
             row1.Date = Convert.ToDateTime("2/10/2022").Date;
             row1.Type = "Income";
-            row1.Occurence = "One-Off";
+            row1.Occurence = "One-off";
             row1.Description = "Arduino Kit";
             this.financialMgtDataSet.TransactionDataTable.AddTransactionDataTableRow(row1);
 
@@ -40,7 +39,7 @@ namespace DVDStore
             row2.Amount = 10000;
             row2.Date = Convert.ToDateTime("3/10/2022").Date;
             row2.Type = "Expense";
-            row2.Occurence = "One-Off";
+            row2.Occurence = "One-off";
             row2.Description = "Pay a loan";
             this.financialMgtDataSet.TransactionDataTable.AddTransactionDataTableRow(row2);
 
@@ -49,7 +48,7 @@ namespace DVDStore
             row3.Amount = 120000;
             row3.Date = Convert.ToDateTime("3/10/2022").Date;
             row3.Type = "Income";
-            row3.Occurence = "Salary";
+            row3.Occurence = "One-off";
             row3.Description = "Arduino Kit";
             this.financialMgtDataSet.TransactionDataTable.AddTransactionDataTableRow(row3);
 
@@ -67,7 +66,7 @@ namespace DVDStore
             row5.Amount = 4500;
             row5.Date = Convert.ToDateTime("3/12/2022").Date;
             row5.Type = "Income";
-            row5.Occurence = "One-Off";
+            row5.Occurence = "One-off";
             row5.Description = "Money back from friend";
             this.financialMgtDataSet.TransactionDataTable.AddTransactionDataTableRow(row5);
 
@@ -76,7 +75,7 @@ namespace DVDStore
             row6.Amount = 1000.50;
             row6.Date = Convert.ToDateTime("3/13/2022").Date;
             row6.Type = "Income";
-            row6.Occurence = "One-Off";
+            row6.Occurence = "One-off";
             row6.Description = "Money back from friend";
             this.financialMgtDataSet.TransactionDataTable.AddTransactionDataTableRow(row6);
         }

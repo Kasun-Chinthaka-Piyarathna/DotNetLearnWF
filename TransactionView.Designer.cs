@@ -1,4 +1,4 @@
-﻿namespace DVDStore
+﻿namespace FinancialMgtTool
 {
     partial class TransactionView
     {
@@ -45,7 +45,8 @@
             this.transactionDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.transactionDataGridView.Location = new System.Drawing.Point(69, 86);
             this.transactionDataGridView.Name = "transactionDataGridView";
-            this.transactionDataGridView.Size = new System.Drawing.Size(579, 150);
+            this.transactionDataGridView.ReadOnly = true;
+            this.transactionDataGridView.Size = new System.Drawing.Size(620, 150);
             this.transactionDataGridView.TabIndex = 0;
             this.transactionDataGridView.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.RowHeaderMouseClick);
             // 
@@ -74,7 +75,7 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.Location = new System.Drawing.Point(467, 57);
+            this.button1.Location = new System.Drawing.Point(508, 57);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(181, 23);
             this.button1.TabIndex = 3;

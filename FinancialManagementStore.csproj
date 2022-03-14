@@ -82,8 +82,13 @@
     <Compile Include="TransactionView.Designer.cs">
       <DependentUpon>TransactionView.cs</DependentUpon>
     </Compile>
+    <Compile Include="UpdateEntry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateEntry.Designer.cs">
+      <DependentUpon>UpdateEntry.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserInformation.cs" />
-    <Compile Include="UserProfileModel.cs" />
     <Compile Include="WeeklyView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +115,9 @@
     </Compile>
     <EmbeddedResource Include="TransactionView.resx">
       <DependentUpon>TransactionView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateEntry.resx">
+      <DependentUpon>UpdateEntry.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WeeklyView.resx">
       <DependentUpon>WeeklyView.cs</DependentUpon>

@@ -12,7 +12,7 @@
 
 using System;
 
-namespace DVDStore {
+namespace FinancialMgtTool {
     
     
     /// <summary>

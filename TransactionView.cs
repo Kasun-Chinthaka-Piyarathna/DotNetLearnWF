@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DVDStore
+namespace FinancialMgtTool
 {
     public partial class TransactionView : Form
     {
@@ -28,8 +28,7 @@ namespace DVDStore
             FinancialMgtDataSet.TransactionDataTableRow[] rows =
 (FinancialMgtDataSet.TransactionDataTableRow[])
     this.financialMgtDataSet.TransactionDataTable.Select();
-            MessageBox.Show(rows.Length.ToString());
-
+           
             if (rows.Length > 0)
             {
                 Double totalIncomes = 0;
@@ -105,23 +104,10 @@ namespace DVDStore
         {
             if (id != 0)
             {
-                FinancialMgtDataSet.TransactionDataTableRow[] rows = 
-                    (FinancialMgtDataSet.TransactionDataTableRow[])
-                    this.financialMgtDataSet.TransactionDataTable.Select("id = " + id);
-
-                this.financialMgtDataSet.AcceptChanges();
-                this.financialMgtDataSet.TransactionDataTable.AcceptChanges();
-
-                if (rows.Length > 0)
-                {
-                    foreach (FinancialMgtDataSet.TransactionDataTableRow row in rows)
-                    {
-                        row.Amount = 1000;
-                        row.AcceptChanges();
-       
-                    }
-                }
-                MessageBox.Show("Record has been successfully updated!");
+                UpdateEntry updateEntry = new UpdateEntry();
+                updateEntry.index = id;
+                updateEntry.financialMgtDataSet = financialMgtDataSet;
+                updateEntry.ShowDialog();
                 id = 0;
             }
             else {

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DVDStore
+namespace FinancialMgtTool
 {
     public partial class WeeklyView : Form
     {

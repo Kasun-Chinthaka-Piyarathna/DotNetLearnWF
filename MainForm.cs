@@ -1,14 +1,6 @@
-﻿using DVDStore;
+﻿using FinancialMgtTool;
 using FinancialManagementStore.DataObjects;
-using FinancialManagementStore.Models;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FinancialManagementStore
@@ -26,29 +18,6 @@ namespace FinancialManagementStore
             financialMgtDataSet = TransactionInformationModel.GetInstance().financialMgtDataSet;
 
         }
-
-        /*  private void AuthenticateUser(object sender, EventArgs e)
-          {
-              String username = this.txtUserName.Text;
-              String password = this.txtPassword.Text;
-
-              //validations
-              if (username == null || username == String.Empty) { 
-                      MessageBox.Show("Username required", "Hey", MessageBoxButtons.OK,
-                          MessageBoxIcon.Warning);
-                  return;
-              }
-              UserProfileModel userProfileModel = new UserProfileModel();
-              Boolean result = userProfileModel.LoginUser(username, password);
-              if (result == true) {
-                  RegisterView registerView = new RegisterView();
-                  registerView.UserName = username;
-                  registerView.labelUserEnteredName.Text = username;
-                  registerView.Show();
-                  this.Hide();
-              }
-          }*/
-
 
         private void ShowTheData(object sender, EventArgs e)
         {
@@ -78,6 +47,7 @@ namespace FinancialManagementStore
                 row.Amount = transactionInfo.Amount;
                 row.Date = transactionInfo.Date;
                 row.Type = transactionInfo.Type;
+                row.Description = transactionInfo.Description;
                 row.Occurence = transactionInfo.Occurence;
                 this.financialMgtDataSet.TransactionDataTable.AddTransactionDataTableRow(row);
             }
@@ -97,6 +67,7 @@ namespace FinancialManagementStore
                 row.Amount = transactionInfo.Amount;
                 row.Date = transactionInfo.Date;
                 row.Type = transactionInfo.Type;
+                row.Description = transactionInfo.Description;
                 row.Occurence = transactionInfo.Occurence;
                 this.financialMgtDataSet.TransactionDataTable.AddTransactionDataTableRow(row);
             }

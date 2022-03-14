@@ -1,4 +1,4 @@
-﻿namespace DVDStore
+﻿namespace FinancialMgtTool
 {
 
 

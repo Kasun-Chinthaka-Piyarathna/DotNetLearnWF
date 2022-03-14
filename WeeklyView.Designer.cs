@@ -1,4 +1,4 @@
-﻿namespace DVDStore
+﻿namespace FinancialMgtTool
 {
     partial class WeeklyView
     {
@@ -59,7 +59,7 @@
             this.weeklyDataGridView.Location = new System.Drawing.Point(12, 105);
             this.weeklyDataGridView.Name = "weeklyDataGridView";
             this.weeklyDataGridView.ReadOnly = true;
-            this.weeklyDataGridView.Size = new System.Drawing.Size(725, 150);
+            this.weeklyDataGridView.Size = new System.Drawing.Size(669, 150);
             this.weeklyDataGridView.TabIndex = 1;
             // 
             // label2
@@ -183,7 +183,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(743, 450);
+            this.ClientSize = new System.Drawing.Size(702, 450);
             this.Controls.Add(this.labelWeekBalance);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.labelWeekExpenses);
