@@ -59,13 +59,6 @@ namespace FinancialManagementStore
                    MessageBoxIcon.Warning);
                 return;
             }
-            FinancialMgtDataSet.TransactionDataTableRow row = (FinancialMgtDataSet.TransactionDataTableRow)
-                this.financialMgtDataSet.
-                TransactionDataTable.Rows[this.financialMgtDataSet.TransactionDataTable.Rows.Count - 1];
-           /* TransactionInformation newData = new TransactionInformation();
-            newData.Transaction = row.Transaction;
-            newData.Date = row.Date;
-            transactionView.TransactionDataToDisplay = newData;*/
             transactionView.transactionDataGridView.DataSource = this.financialMgtDataSet.
                 TransactionDataTable;
             transactionView.financialMgtDataSet = this.financialMgtDataSet; 

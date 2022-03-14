@@ -14,7 +14,6 @@ namespace DVDStore
     public partial class TransactionView : Form
     {
 
-        public TransactionInformation TransactionDataToDisplay { get; set; }
         public FinancialMgtDataSet financialMgtDataSet { get; set; }
 
         int id = 0;
@@ -26,6 +25,40 @@ namespace DVDStore
         }
         private void TransactionView_Load(object sender, EventArgs e)
         {
+            FinancialMgtDataSet.TransactionDataTableRow[] rows =
+(FinancialMgtDataSet.TransactionDataTableRow[])
+    this.financialMgtDataSet.TransactionDataTable.Select();
+            MessageBox.Show(rows.Length.ToString());
+
+            if (rows.Length > 0)
+            {
+                Double totalIncomes = 0;
+                Double totalExpenses = 0;
+                Double balance = 0;
+                int financialPredictionPerADate = 0;
+                int numberOfDates =(int)(rows[rows.Length - 1].Date - rows[0].Date).TotalDays;
+                numberOfDates = numberOfDates == 0 ? 1 : numberOfDates;
+                foreach (FinancialMgtDataSet.TransactionDataTableRow row in rows)
+                {
+                    if (row.Type.Equals("Income"))
+                    {
+                        totalIncomes += row.Amount;
+                    }
+                    else
+                    {
+                        totalExpenses += row.Amount;
+                    }
+
+                }
+                balance = totalIncomes - totalExpenses;
+                financialPredictionPerADate = (int)balance / numberOfDates;
+                this.labelTransactionViewTotalIncome.Text = "Your total incomes are "+ totalIncomes;
+                this.labelTransactionViewTotalExpenses.Text = "Your total expeses are "+totalExpenses;
+                this.labelTransactionViewTotalBalance.Text = "Your balance is "+balance;
+                this.labelTransactionViewFuturePrediction.Text="Financial Prediction per a future date is "+
+                    financialPredictionPerADate;
+
+            }
         }
  
 

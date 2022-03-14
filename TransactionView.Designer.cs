@@ -32,6 +32,10 @@
             this.buttonUpdateRecord = new System.Windows.Forms.Button();
             this.buttonDeleteRecord = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.labelTransactionViewTotalIncome = new System.Windows.Forms.Label();
+            this.labelTransactionViewTotalExpenses = new System.Windows.Forms.Label();
+            this.labelTransactionViewTotalBalance = new System.Windows.Forms.Label();
+            this.labelTransactionViewFuturePrediction = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.transactionDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,7 +50,7 @@
             // 
             // buttonUpdateRecord
             // 
-            this.buttonUpdateRecord.Location = new System.Drawing.Point(445, 57);
+            this.buttonUpdateRecord.Location = new System.Drawing.Point(69, 57);
             this.buttonUpdateRecord.Name = "buttonUpdateRecord";
             this.buttonUpdateRecord.Size = new System.Drawing.Size(98, 23);
             this.buttonUpdateRecord.TabIndex = 1;
@@ -56,7 +60,7 @@
             // 
             // buttonDeleteRecord
             // 
-            this.buttonDeleteRecord.Location = new System.Drawing.Point(549, 57);
+            this.buttonDeleteRecord.Location = new System.Drawing.Point(173, 57);
             this.buttonDeleteRecord.Name = "buttonDeleteRecord";
             this.buttonDeleteRecord.Size = new System.Drawing.Size(99, 23);
             this.buttonDeleteRecord.TabIndex = 2;
@@ -66,7 +70,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(467, 243);
+            this.button1.Location = new System.Drawing.Point(467, 57);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(181, 23);
             this.button1.TabIndex = 3;
@@ -74,11 +78,51 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.ShowWeeklyReport);
             // 
+            // labelTransactionViewTotalIncome
+            // 
+            this.labelTransactionViewTotalIncome.AutoSize = true;
+            this.labelTransactionViewTotalIncome.Location = new System.Drawing.Point(66, 281);
+            this.labelTransactionViewTotalIncome.Name = "labelTransactionViewTotalIncome";
+            this.labelTransactionViewTotalIncome.Size = new System.Drawing.Size(124, 13);
+            this.labelTransactionViewTotalIncome.TabIndex = 4;
+            this.labelTransactionViewTotalIncome.Text = "Your total income amout ";
+            // 
+            // labelTransactionViewTotalExpenses
+            // 
+            this.labelTransactionViewTotalExpenses.AutoSize = true;
+            this.labelTransactionViewTotalExpenses.Location = new System.Drawing.Point(66, 308);
+            this.labelTransactionViewTotalExpenses.Name = "labelTransactionViewTotalExpenses";
+            this.labelTransactionViewTotalExpenses.Size = new System.Drawing.Size(103, 13);
+            this.labelTransactionViewTotalExpenses.TabIndex = 5;
+            this.labelTransactionViewTotalExpenses.Text = "Your total expenses ";
+            // 
+            // labelTransactionViewTotalBalance
+            // 
+            this.labelTransactionViewTotalBalance.AutoSize = true;
+            this.labelTransactionViewTotalBalance.Location = new System.Drawing.Point(66, 336);
+            this.labelTransactionViewTotalBalance.Name = "labelTransactionViewTotalBalance";
+            this.labelTransactionViewTotalBalance.Size = new System.Drawing.Size(70, 13);
+            this.labelTransactionViewTotalBalance.TabIndex = 6;
+            this.labelTransactionViewTotalBalance.Text = "Your balance";
+            // 
+            // labelTransactionViewFuturePrediction
+            // 
+            this.labelTransactionViewFuturePrediction.AutoSize = true;
+            this.labelTransactionViewFuturePrediction.Location = new System.Drawing.Point(66, 363);
+            this.labelTransactionViewFuturePrediction.Name = "labelTransactionViewFuturePrediction";
+            this.labelTransactionViewFuturePrediction.Size = new System.Drawing.Size(185, 13);
+            this.labelTransactionViewFuturePrediction.TabIndex = 7;
+            this.labelTransactionViewFuturePrediction.Text = "Financial predication per a future date";
+            // 
             // TransactionView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.labelTransactionViewFuturePrediction);
+            this.Controls.Add(this.labelTransactionViewTotalBalance);
+            this.Controls.Add(this.labelTransactionViewTotalExpenses);
+            this.Controls.Add(this.labelTransactionViewTotalIncome);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.buttonDeleteRecord);
             this.Controls.Add(this.buttonUpdateRecord);
@@ -88,6 +132,7 @@
             this.Load += new System.EventHandler(this.TransactionView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.transactionDataGridView)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -97,5 +142,9 @@
         private System.Windows.Forms.Button buttonUpdateRecord;
         private System.Windows.Forms.Button buttonDeleteRecord;
         private System.Windows.Forms.Button button1;
+        public System.Windows.Forms.Label labelTransactionViewTotalIncome;
+        public System.Windows.Forms.Label labelTransactionViewTotalExpenses;
+        public System.Windows.Forms.Label labelTransactionViewTotalBalance;
+        public System.Windows.Forms.Label labelTransactionViewFuturePrediction;
     }
 }
