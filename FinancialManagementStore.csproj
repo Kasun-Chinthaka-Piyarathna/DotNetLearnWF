@@ -84,6 +84,12 @@
     </Compile>
     <Compile Include="UserInformation.cs" />
     <Compile Include="UserProfileModel.cs" />
+    <Compile Include="WeeklyView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WeeklyView.Designer.cs">
+      <DependentUpon>WeeklyView.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="ExpenseEntry.resx">
       <DependentUpon>ExpenseEntry.cs</DependentUpon>
     </EmbeddedResource>
@@ -104,6 +110,9 @@
     </Compile>
     <EmbeddedResource Include="TransactionView.resx">
       <DependentUpon>TransactionView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WeeklyView.resx">
+      <DependentUpon>WeeklyView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="FinancialMgtDataSet.xsc">
       <DependentUpon>FinancialMgtDataSet.xsd</DependentUpon>

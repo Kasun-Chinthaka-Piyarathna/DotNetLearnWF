@@ -95,5 +95,11 @@ namespace DVDStore
                 MessageBox.Show("Please Select Record to Update. You can click on Row Header and select the row!");
             }
         }
+
+        private void ShowWeeklyReport(object sender, EventArgs e)
+        {
+            WeeklyView weeklyView = new WeeklyView();
+            weeklyView.ShowDialog();
+        }
     }
 }

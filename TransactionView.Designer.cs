@@ -31,13 +31,14 @@
             this.transactionDataGridView = new System.Windows.Forms.DataGridView();
             this.buttonUpdateRecord = new System.Windows.Forms.Button();
             this.buttonDeleteRecord = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.transactionDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // transactionDataGridView
             // 
             this.transactionDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.transactionDataGridView.Location = new System.Drawing.Point(69, 125);
+            this.transactionDataGridView.Location = new System.Drawing.Point(69, 86);
             this.transactionDataGridView.Name = "transactionDataGridView";
             this.transactionDataGridView.Size = new System.Drawing.Size(579, 150);
             this.transactionDataGridView.TabIndex = 0;
@@ -63,11 +64,22 @@
             this.buttonDeleteRecord.UseVisualStyleBackColor = true;
             this.buttonDeleteRecord.Click += new System.EventHandler(this.DeleteRecord);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(467, 243);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(181, 23);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Show Weekly View";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.ShowWeeklyReport);
+            // 
             // TransactionView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.buttonDeleteRecord);
             this.Controls.Add(this.buttonUpdateRecord);
             this.Controls.Add(this.transactionDataGridView);
@@ -84,5 +96,6 @@
         public System.Windows.Forms.DataGridView transactionDataGridView;
         private System.Windows.Forms.Button buttonUpdateRecord;
         private System.Windows.Forms.Button buttonDeleteRecord;
+        private System.Windows.Forms.Button button1;
     }
 }

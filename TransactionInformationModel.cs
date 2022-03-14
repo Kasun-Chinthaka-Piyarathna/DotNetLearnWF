@@ -26,13 +26,53 @@ namespace DVDStore
         public void SetInitialRecords() // only for demostration
         {
 
-            FinancialMgtDataSet.TransactionDataTableRow row = this.financialMgtDataSet.
+            FinancialMgtDataSet.TransactionDataTableRow row1 = this.financialMgtDataSet.
                 TransactionDataTable.NewTransactionDataTableRow();
-            row.Amount = 1000.50;
-            row.Date = Convert.ToDateTime("3/10/2022").Date;
-            row.Type = "Income";
-            row.Occurence = null;
-            this.financialMgtDataSet.TransactionDataTable.AddTransactionDataTableRow(row);
+            row1.Amount = 1000.50;
+            row1.Date = Convert.ToDateTime("2/10/2022").Date;
+            row1.Type = "Income";
+            row1.Occurence = null;
+            this.financialMgtDataSet.TransactionDataTable.AddTransactionDataTableRow(row1);
+
+            FinancialMgtDataSet.TransactionDataTableRow row2 = this.financialMgtDataSet.
+                TransactionDataTable.NewTransactionDataTableRow();
+            row2.Amount = 10000;
+            row2.Date = Convert.ToDateTime("3/10/2022").Date;
+            row2.Type = "Expense";
+            row2.Occurence = "One-Off";
+            this.financialMgtDataSet.TransactionDataTable.AddTransactionDataTableRow(row2);
+
+            FinancialMgtDataSet.TransactionDataTableRow row3 = this.financialMgtDataSet.
+               TransactionDataTable.NewTransactionDataTableRow();
+            row3.Amount = 20000;
+            row3.Date = Convert.ToDateTime("3/10/2022").Date;
+            row3.Type = "Income";
+            row3.Occurence = null;
+            this.financialMgtDataSet.TransactionDataTable.AddTransactionDataTableRow(row3);
+
+            FinancialMgtDataSet.TransactionDataTableRow row4 = this.financialMgtDataSet.
+               TransactionDataTable.NewTransactionDataTableRow();
+            row4.Amount = 1500;
+            row4.Date = Convert.ToDateTime("3/11/2022").Date;
+            row4.Type = "Expense";
+            row4.Occurence = "Recurring";
+            this.financialMgtDataSet.TransactionDataTable.AddTransactionDataTableRow(row4);
+
+            FinancialMgtDataSet.TransactionDataTableRow row5 = this.financialMgtDataSet.
+               TransactionDataTable.NewTransactionDataTableRow();
+            row5.Amount = 4500;
+            row5.Date = Convert.ToDateTime("3/12/2022").Date;
+            row5.Type = "Income";
+            row5.Occurence = null;
+            this.financialMgtDataSet.TransactionDataTable.AddTransactionDataTableRow(row5);
+
+            FinancialMgtDataSet.TransactionDataTableRow row6 = this.financialMgtDataSet.
+               TransactionDataTable.NewTransactionDataTableRow();
+            row6.Amount = 1000.50;
+            row6.Date = Convert.ToDateTime("3/13/2022").Date;
+            row6.Type = "Income";
+            row6.Occurence = null;
+            this.financialMgtDataSet.TransactionDataTable.AddTransactionDataTableRow(row6);
         }
     }
 }
