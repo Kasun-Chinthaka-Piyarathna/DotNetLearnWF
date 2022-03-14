@@ -44,12 +44,15 @@ namespace FinancialManagementStore
             FinancialMgtDataSet.TransactionDataTableRow row = this.financialMgtDataSet.TransactionDataTable.NewTransactionDataTableRow();
             if (row != null && transactionInfo != null)
             {
-                row.Amount = transactionInfo.Amount;
-                row.Date = transactionInfo.Date;
-                row.Type = transactionInfo.Type;
-                row.Description = transactionInfo.Description;
-                row.Occurence = transactionInfo.Occurence;
-                this.financialMgtDataSet.TransactionDataTable.AddTransactionDataTableRow(row);
+                if (transactionInfo.Type != null)
+                {
+                    row.Amount = transactionInfo.Amount;
+                    row.Date = transactionInfo.Date;
+                    row.Type = transactionInfo.Type;
+                    row.Description = transactionInfo.Description;
+                    row.Occurence = transactionInfo.Occurence;
+                    this.financialMgtDataSet.TransactionDataTable.AddTransactionDataTableRow(row);
+                }
             }
 
         }
@@ -64,12 +67,15 @@ namespace FinancialManagementStore
             FinancialMgtDataSet.TransactionDataTableRow row = this.financialMgtDataSet.TransactionDataTable.NewTransactionDataTableRow();
             if (row != null && transactionInfo!=null)
             {
-                row.Amount = transactionInfo.Amount;
-                row.Date = transactionInfo.Date;
-                row.Type = transactionInfo.Type;
-                row.Description = transactionInfo.Description;
-                row.Occurence = transactionInfo.Occurence;
-                this.financialMgtDataSet.TransactionDataTable.AddTransactionDataTableRow(row);
+                if (transactionInfo.Type != null)
+                {
+                    row.Amount = transactionInfo.Amount;
+                    row.Date = transactionInfo.Date;
+                    row.Type = transactionInfo.Type;
+                    row.Description = transactionInfo.Description;
+                    row.Occurence = transactionInfo.Occurence;
+                    this.financialMgtDataSet.TransactionDataTable.AddTransactionDataTableRow(row);
+                }
             }
         }
     }
