@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.btnDataEntry = new System.Windows.Forms.Button();
             this.btnView = new System.Windows.Forms.Button();
             this.buttonAddExpense = new System.Windows.Forms.Button();
@@ -35,7 +36,7 @@
             // 
             // btnDataEntry
             // 
-            this.btnDataEntry.Location = new System.Drawing.Point(39, 64);
+            this.btnDataEntry.Location = new System.Drawing.Point(363, 215);
             this.btnDataEntry.Name = "btnDataEntry";
             this.btnDataEntry.Size = new System.Drawing.Size(100, 23);
             this.btnDataEntry.TabIndex = 5;
@@ -45,17 +46,17 @@
             // 
             // btnView
             // 
-            this.btnView.Location = new System.Drawing.Point(312, 92);
+            this.btnView.Location = new System.Drawing.Point(295, 308);
             this.btnView.Name = "btnView";
-            this.btnView.Size = new System.Drawing.Size(75, 23);
+            this.btnView.Size = new System.Drawing.Size(168, 23);
             this.btnView.TabIndex = 6;
-            this.btnView.Text = "View Info";
+            this.btnView.Text = "View your financial report";
             this.btnView.UseVisualStyleBackColor = true;
             this.btnView.Click += new System.EventHandler(this.ShowTheData);
             // 
             // buttonAddExpense
             // 
-            this.buttonAddExpense.Location = new System.Drawing.Point(39, 125);
+            this.buttonAddExpense.Location = new System.Drawing.Point(363, 261);
             this.buttonAddExpense.Name = "buttonAddExpense";
             this.buttonAddExpense.Size = new System.Drawing.Size(100, 23);
             this.buttonAddExpense.TabIndex = 7;
@@ -67,10 +68,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(438, 273);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(509, 375);
             this.Controls.Add(this.buttonAddExpense);
             this.Controls.Add(this.btnView);
             this.Controls.Add(this.btnDataEntry);
+            this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "Financial Management and Prediction";
             this.Load += new System.EventHandler(this.MainForm_Load);

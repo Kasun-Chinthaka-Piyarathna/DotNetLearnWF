@@ -32,11 +32,18 @@ namespace FinancialManagementStore
                 this.TransactionData = new TransactionInformation();
             }
             String amount = this.textAmount.Text;
+            String description = this.textDescription.Text;
             DateTime transactionDate = this.dateTimePicker.Value.Date;
             int index = this.typeSelectionComboBox.SelectedIndex;
             if (amount == null || amount == String.Empty)
             {
                 MessageBox.Show("Transaction Amount is required", "Hey", MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+                return;
+            }
+            if (description == null || description == String.Empty)
+            {
+                MessageBox.Show("Transaction Description is required", "Hey", MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
                 return;
             }
@@ -53,6 +60,7 @@ namespace FinancialManagementStore
                 return;
             }
             this.TransactionData.Amount = Convert.ToDouble(amount);
+            this.TransactionData.Description = description;
             this.TransactionData.Date = transactionDate;
             this.TransactionData.Occurence = this.typeSelectionComboBox.SelectedItem.ToString();
             this.TransactionData.Type = "Expense";
