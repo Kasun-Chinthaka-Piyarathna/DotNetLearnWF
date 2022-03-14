@@ -104,12 +104,13 @@ namespace DVDStore
             (FinancialMgtDataSet.TransactionDataTableRow[])
             this.financialMgtDataSet.TransactionDataTable.Select("Date > #" + lastWeekStartDate+"#"+
             "AND Date <= #"+nowDate+"#");
-            MessageBox.Show(rows.Length.ToString());
-
             List<TransactionInformation> weeklyData = new List<TransactionInformation>();
 
             if (rows.Length > 0)
             {
+                Double totalIncome=0;
+                Double totalExpenses=0;
+                Double balance = 0;
                 foreach (FinancialMgtDataSet.TransactionDataTableRow row in rows)
                 {
                     weeklyData.Add(new TransactionInformation()
@@ -122,10 +123,22 @@ namespace DVDStore
                         Occurence = row.Occurence
                     });
 
+                    if (row.Type.Equals("Income"))
+                    {
+                        totalIncome += row.Amount;
+                    }
+                    else {
+                        totalExpenses += row.Amount;
+                    }
+
                 }
+                balance = totalIncome - totalExpenses;
                 WeeklyView weeklyView = new WeeklyView();
                 weeklyView.labelFrom.Text = lastWeekStartDate.ToShortDateString();
                 weeklyView.labelTo.Text = nowDate.ToShortDateString();
+                weeklyView.labelWeekIncome.Text = Convert.ToString(totalIncome);
+                weeklyView.labelWeekExpenses.Text =Convert.ToString(totalExpenses);
+                weeklyView.labelWeekBalance.Text = Convert.ToString(balance);
                 weeklyView.weeklyDataGridView.DataSource = weeklyData;
                 weeklyView.ShowDialog();
             }

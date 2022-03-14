@@ -195,12 +195,12 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label labelWeekIncome;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label labelWeekExpenses;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label labelWeekBalance;
         public System.Windows.Forms.Label labelTo;
         public System.Windows.Forms.Label labelFrom;
+        public System.Windows.Forms.Label labelWeekIncome;
+        public System.Windows.Forms.Label labelWeekExpenses;
+        public System.Windows.Forms.Label labelWeekBalance;
     }
 }
